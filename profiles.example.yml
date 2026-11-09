@@ -1,0 +1,10 @@
+# Copy this file to profiles.yml (gitignored) in the repo root:
+#   cp profiles.example.yml profiles.yml
+# Run dbt from the repo root so the relative path below resolves.
+medicare_access:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: data/medicare.duckdb
+      threads: 4

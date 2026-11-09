@@ -1,0 +1,8 @@
+name: medicare_access
+version: "1.0.0"
+profile: medicare_access
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+clean-targets: ["target", "dbt_packages"]
