@@ -8,3 +8,16 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: int_provider_gap
+    description: "One row per NPI in the by-Provider file, with G* (gap_services), the upper limit on suppressed services."
+    columns:
+      - name: npi
+        data_tests:
+          - unique
+          - not_null
+      - name: gap_basis
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['medical', 'total']
