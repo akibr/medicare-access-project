@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: int_provider_em
+    description: "One row per NPI with visible office/outpatient E/M and eye exam services, rows, and places of service."
+    columns:
+      - name: npi
+        data_tests:
+          - unique
+          - not_null
