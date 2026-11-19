@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: cms
+    description: "CMS Medicare Physician & Other Practitioners, by Provider and Service. Loaded unchanged, all columns as text, by scripts/load_raw.py."
+    schema: main
+    tables:
+      - name: raw_phys_2024
+        description: "2024 data year. One row per NPI, HCPCS code, and place of service. 9,781,673 rows."
