@@ -203,13 +203,11 @@ Requires conda and about 4 GB of free disk space.
    pip install -r requirements.txt
    ```
 
-3. Load the code-level CSV into DuckDB (all columns as text; types are set in dbt staging):
+3. Load both CSVs into DuckDB (all columns as text; types are set in dbt staging):
    ```
    python scripts/load_raw.py
    ```
-   Expected: `Loaded 9,781,673 rows into raw_phys_2024`.
-
-   Loading the by-Provider file will be added with the dbt models.
+   Expected: `Loaded 9,781,673 rows into raw_phys_2024` and `Loaded 1,296,739 rows into raw_phys_prov_2024`, each followed by `Columns not stored as text: 0`.
 
 The raw CSVs and the DuckDB file are gitignored and never committed.
 
