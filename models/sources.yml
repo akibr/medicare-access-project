@@ -7,3 +7,5 @@ sources:
     tables:
       - name: raw_phys_2024
         description: "2024 data year. One row per NPI, HCPCS code, and place of service. 9,781,673 rows."
+      - name: raw_phys_prov_2024
+        description: "2024 data year, by Provider file. One row per NPI. 1,296,739 rows. Totals are built from all claims, including rows suppressed in raw_phys_2024 (CMS methodology, section 4.2)."
