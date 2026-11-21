@@ -21,3 +21,16 @@ models:
           - accepted_values:
               arguments:
                 values: ['medical', 'total']
+
+  - name: int_provider_eligible
+    description: "One row per NPI: specialty scope group, analysis inputs, and eligibility flags (primary and two sensitivities)."
+    columns:
+      - name: npi
+        data_tests:
+          - unique
+          - not_null
+      - name: scope_group
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['main', 'eye_care', 'excluded_behavioral_health', 'excluded_undefined']
