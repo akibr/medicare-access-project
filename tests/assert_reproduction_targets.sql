@@ -1,4 +1,4 @@
--- README reproduction targets (primary analysis). Each row returned is a target that no longer reproduces.
+-- README reproduction targets (primary and sensitivity analysis). Each row returned is a target that no longer reproduces.
 -- Shares are compared in percent, rounded to 2 decimals, as published in the README.
 
 with providers as (
@@ -16,6 +16,12 @@ bounds as (
 pairs as (
 
     select * from {{ ref('fct_specialty_pairs') }}
+
+),
+
+sens as (
+
+    select * from {{ ref('fct_sensitivity_summary') }}
 
 ),
 
@@ -75,6 +81,23 @@ checks as (
     select 'scenario D robust pairs',      259,     (select count(*) from pairs where ordering_d <> 'not_robust')
     union all
     select 'specialty pairs',              2145,    (select count(*) from pairs)
+    union all
+    select '99211 providers',              400742,  (select providers from sens where scenario = 'incl_99211')
+    union all
+    select '99211 observed %',             10.33,   (select round(100 * observed_share, 2) from sens where scenario = 'incl_99211')
+    union all
+    select '99211 lower %',                7.71,    (select round(100 * lower_d, 2) from sens where scenario = 'incl_99211')
+    union all
+    select '99211 upper %',                22.41,   (select round(100 * upper_d, 2) from sens where scenario = 'incl_99211')
+    union all
+    select '99211 robust pairs',           264,     (select robust_pairs from sens where scenario = 'incl_99211')
+    union all
+    select 'potential providers',          567223,  (select providers from sens where scenario = 'potential_eligibility')
+    union all
+    select 'potential specialties',        74,      (select specialties from sens where scenario = 'potential_eligibility')
+    union all
+    select 'potential robust pairs',       134,     (select robust_pairs from sens where scenario = 'potential_eligibility')
+
 
 )
 

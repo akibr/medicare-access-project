@@ -27,3 +27,21 @@ models:
           - accepted_values:
               arguments:
                 values: ['a_higher', 'b_higher', 'not_robust']
+
+  - name: fct_sensitivity_specialty
+    description: "One row per sensitivity scenario and reported main-comparison specialty, with Scenario D bounds."
+    columns:
+      - name: scenario
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['primary', 'incl_99211', 'cap_11_7', 'potential_eligibility']
+
+  - name: fct_sensitivity_summary
+    description: "One row per sensitivity scenario: providers, specialties, overall share and bounds, and robust pairs."
+    columns:
+      - name: scenario
+        data_tests:
+          - unique
+          - not_null
+

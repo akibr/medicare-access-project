@@ -124,7 +124,7 @@ U_E = min(100 x (4P - R_E), G*)
 
 4P is the number of possible slots per code family (4 codes x the provider's P places of service); subtracting the visible rows R_N or R_E leaves the missing slots.
 
-**Further sensitivity checks:** a cap of 11.7 per new-patient slot in Scenario D; eligibility defined as visible E/M + G* >= 100 (567,410 providers, 74 specialties); 99211 included.
+**Further sensitivity checks:** a cap of 11.7 per new-patient slot in Scenario D; eligibility defined as visible E/M + G* >= 100 (567,223 providers, 74 specialties); 99211 included.
 
 **Suppression-robust comparison.** Specialty comparisons are considered suppression-robust only when one specialty's lower bound exceeds the other's upper bound. This is a sufficient test under the stated assumptions. Because G* can include hidden services outside the E/M definition, the bounds may be wider than necessary, and the test may not identify every ordering that more detailed claims data could establish. In the other direction, the cap of 16 is an assumption: if a suppressed new-patient row held more than 16 services, upper bounds would be understated.
 
@@ -165,7 +165,7 @@ Exploratory results the dbt models must reproduce before any findings are publis
 | Eye care | 35,378 providers, 2 specialties |
 | Scenario D, main comparison | 10.38% [7.74%, 22.50%], 259 robust pairs of 2,145 |
 | Scenario D with 99211 included | 400,742 providers, 10.33% [7.71%, 22.41%], 264 robust pairs |
-| Scenario D, eligibility = visible E/M + G* >= 100 | 567,410 providers, 74 specialties |
+| Scenario D, eligibility = visible E/M + G* >= 100 | 567,223 providers, 74 specialties, 134 robust pairs of 2,701 |
 
 ### Limitations
 
