@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_specialty_bounds
+    description: "One row per reported specialty: observed new-patient E/M service share, Scenario D and A suppression bounds, and flags."
+    columns:
+      - name: provider_type
+        data_tests:
+          - unique
+          - not_null
+      - name: scope_group
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['main', 'eye_care']
