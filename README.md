@@ -32,6 +32,11 @@ About 1 in 10 visible level 2-5 office/outpatient E/M services in the main compa
 
 ### Specialty comparisons
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/specialty_ranges_dark.png">
+  <img src="figures/specialty_ranges_light.png" width="720" alt="Dot-and-range chart of 66 specialties sorted by observed new-patient share. Surgical and procedural specialties (higher group, blue) cluster at 18 to 38 percent; primary care and longitudinal medical specialties (lower group, orange) cluster at 3 to 13 percent; 15 specialties in no robust pair (gray) have wide ranges that overlap both groups.">
+</picture>
+
 - **259 of 2,145 specialty pairs (12%) are suppression-robust under Scenario D.** 51 of the 66 specialties appear in at least one robust pair.
 - **The robust comparisons identify two non-overlapping groups.** 22 specialties are robustly higher than at least one other specialty, 29 are robustly lower than at least one, and no specialty is in both groups. This holds in every Scenario D sensitivity check.
   - **Higher group** (observed 18.2% to 37.7%): mostly surgical and procedural specialties, such as Colorectal, Thoracic, Hand, Cardiac, Neurosurgery, General Surgery, Otolaryngology, and Orthopedic Surgery, plus Sports Medicine, Sleep Medicine, and Podiatry.
@@ -342,6 +347,12 @@ Requires conda and about 4 GB of free disk space.
    dbt build
    ```
    Expected: `Done. PASS=38 WARN=0 ERROR=0`. Results are in `fct_specialty_bounds`, `fct_specialty_pairs`, and `fct_sensitivity_summary` in `data/medicare.duckdb`.
+
+5. Redraw the figure (optional; the PNGs are committed):
+   ```
+   python scripts/make_figure.py
+   ```
+   Expected: `Wrote figures/specialty_ranges_light.png` and `Wrote figures/specialty_ranges_dark.png`.
 
 The raw CSVs and the DuckDB file are gitignored and never committed.
 
