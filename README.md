@@ -314,7 +314,7 @@ Results from the exploratory analysis that the dbt models must reproduce. `tests
 
 **Selection and interpretation**
 - Eligibility uses visible volume, which is affected by suppression. A sensitivity check uses potential volume.
-- Results are descriptive. A suppression-robust difference shows the data supports the difference, not why it exists. For example, a higher share in surgical specialties likely reflects referral-based practice, not better access.
+- Results are descriptive. A suppression-robust difference shows the data supports the difference, not why it exists. For example, a higher share in surgical specialties may reflect referral-based practice; this is not tested here, and the share does not measure access.
 - The bounds do not cover sampling variation or confounding.
 
 ## Reproduce
