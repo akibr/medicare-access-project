@@ -13,3 +13,17 @@ models:
           - accepted_values:
               arguments:
                 values: ['main', 'eye_care']
+
+  - name: fct_specialty_pairs
+    description: "One row per unordered pair of main-comparison specialties, with the suppression-robust ordering under Scenario D and A."
+    columns:
+      - name: ordering_d
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['a_higher', 'b_higher', 'not_robust']
+      - name: ordering_a
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['a_higher', 'b_higher', 'not_robust']
